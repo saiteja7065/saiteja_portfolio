@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowDown, Download, ExternalLink } from 'lucide-react';
+import { ArrowDown, Download, ExternalLink, Code, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
@@ -16,31 +16,64 @@ const Hero = () => {
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5"></div>
       
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-secondary/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-primary/5 rounded-full blur-lg animate-pulse delay-500"></div>
+        <div className="absolute bottom-1/3 left-2/3 w-24 h-24 bg-secondary/5 rounded-full blur-lg animate-pulse delay-700"></div>
+      </div>
+      
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           {/* Profile Image */}
           <div className="mb-8 relative inline-block">
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-r from-primary to-secondary p-1 animate-pulse">
-              <div className="w-full h-full rounded-full bg-muted flex items-center justify-center text-4xl md:text-5xl font-bold text-primary">
-                SG
+              <div className="w-full h-full rounded-full bg-muted flex items-center justify-center text-4xl md:text-5xl font-bold text-primary relative overflow-hidden">
+                <span className="relative z-10">SG</span>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full"></div>
               </div>
+            </div>
+            <div className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full p-2 animate-bounce">
+              <Code size={16} />
             </div>
           </div>
 
           {/* Main Content */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in">
-            Hi, I'm <span className="text-primary">Saiteja</span>
-          </h1>
-          
-          <div className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-8 animate-fade-in">
-            <span className="block mb-2">Full Stack Developer</span>
-            <span className="text-primary">& AI Enthusiast</span>
+          <div className="space-y-6 animate-fade-in">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
+              Hi, I'm <span className="text-primary relative">
+                Saiteja
+                <Sparkles className="absolute -top-2 -right-8 w-6 h-6 text-primary animate-pulse" />
+              </span>
+            </h1>
+            
+            <div className="text-xl md:text-2xl lg:text-3xl text-muted-foreground">
+              <span className="block mb-2">Full Stack Developer</span>
+              <span className="text-primary font-semibold">& AI Enthusiast</span>
+            </div>
+
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Passionate about building innovative web applications and AI solutions. 
+              Currently helping aspiring developers grow as a <span className="text-primary font-medium">Teaching Assistant at NxtWave</span>.
+            </p>
           </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in">
-            Passionate about building innovative web applications and AI solutions. 
-            Teaching Assistant at NxtWave, helping learners master technology.
-          </p>
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 my-12 animate-fade-in">
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-primary">306</div>
+              <div className="text-sm text-muted-foreground">Discussions Resolved</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-primary">264</div>
+              <div className="text-sm text-muted-foreground">Learners Assisted</div>
+            </div>
+            <div className="text-center col-span-2 md:col-span-1">
+              <div className="text-2xl md:text-3xl font-bold text-primary">5+</div>
+              <div className="text-sm text-muted-foreground">Projects Built</div>
+            </div>
+          </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in">
@@ -57,16 +90,12 @@ const Hero = () => {
           {/* Scroll Indicator */}
           <button 
             onClick={() => scrollToSection('about')}
-            className="animate-bounce hover:text-primary transition-colors"
+            className="animate-bounce hover:text-primary transition-colors group"
           >
-            <ArrowDown size={24} />
+            <ArrowDown size={24} className="group-hover:translate-y-1 transition-transform" />
           </button>
         </div>
       </div>
-
-      {/* Floating Elements */}
-      <div className="absolute top-1/4 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-secondary/10 rounded-full blur-xl animate-pulse delay-1000"></div>
     </section>
   );
 };

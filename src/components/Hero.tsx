@@ -2,6 +2,7 @@
 import React from 'react';
 import { ArrowDown, Download, ExternalLink, Code, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -26,16 +27,22 @@ const Hero = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
-          {/* Profile Image */}
+          {/* Professional Profile Image */}
           <div className="mb-8 relative inline-block">
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-r from-primary to-secondary p-1 animate-pulse">
-              <div className="w-full h-full rounded-full bg-muted flex items-center justify-center text-4xl md:text-5xl font-bold text-primary relative overflow-hidden">
-                <span className="relative z-10">SG</span>
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full"></div>
+            <div className="relative">
+              <Avatar className="w-32 h-32 md:w-40 md:h-40 mx-auto ring-4 ring-primary/20 ring-offset-4 ring-offset-background">
+                <AvatarImage 
+                  src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=400&h=400&fit=crop&crop=face" 
+                  alt="Saiteja Garlapati"
+                  className="object-cover"
+                />
+                <AvatarFallback className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary text-primary-foreground">
+                  SG
+                </AvatarFallback>
+              </Avatar>
+              <div className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full p-2 animate-bounce">
+                <Code size={16} />
               </div>
-            </div>
-            <div className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full p-2 animate-bounce">
-              <Code size={16} />
             </div>
           </div>
 
@@ -70,8 +77,8 @@ const Hero = () => {
               <div className="text-sm text-muted-foreground">Learners Assisted</div>
             </div>
             <div className="text-center col-span-2 md:col-span-1">
-              <div className="text-2xl md:text-3xl font-bold text-primary">5+</div>
-              <div className="text-sm text-muted-foreground">Projects Built</div>
+              <div className="text-2xl md:text-3xl font-bold text-primary">12+</div>
+              <div className="text-sm text-muted-foreground">Certifications</div>
             </div>
           </div>
 

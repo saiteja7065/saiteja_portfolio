@@ -1,7 +1,9 @@
-
 import React, { useState } from 'react';
-import { Code, Database, Globe, Cpu, Award, GraduationCap, Target, Heart } from 'lucide-react';
+import { Code, Database, Globe, Cpu, Award, GraduationCap, Target, Heart, Calendar, CheckCircle, ExternalLink } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
 const About = () => {
   const skillCategories = [
@@ -92,6 +94,123 @@ const About = () => {
     }
   ];
 
+  const technicalCertifications = [
+    {
+      title: 'Full Stack Development',
+      issuer: 'NxtWave',
+      date: '2024',
+      skills: ['React.js', 'Node.js', 'JavaScript', 'MongoDB']
+    },
+    {
+      title: 'JavaScript Algorithms and Data Structures',
+      issuer: 'freeCodeCamp',
+      date: '2023',
+      skills: ['JavaScript', 'Algorithms', 'Data Structures']
+    },
+    {
+      title: 'Machine Learning Fundamentals',
+      issuer: 'Coursera',
+      date: '2023',
+      skills: ['Python', 'ML', 'TensorFlow', 'Scikit-learn']
+    },
+    {
+      title: 'AWS Cloud Practitioner',
+      issuer: 'Amazon Web Services',
+      date: '2023',
+      skills: ['AWS', 'Cloud Computing', 'DevOps']
+    }
+  ];
+
+  const eventCertifications = [
+    {
+      title: 'Google Developer Groups (GDG) DevFest 2023',
+      issuer: 'Google Developers',
+      date: '2023',
+      type: 'Workshop Participation'
+    },
+    {
+      title: 'HacktoberFest 2023',
+      issuer: 'DigitalOcean',
+      date: '2023',
+      type: 'Open Source Contribution'
+    },
+    {
+      title: 'Tech Innovation Summit',
+      issuer: 'IEEE',
+      date: '2023',
+      type: 'Conference Participation'
+    },
+    {
+      title: 'AI/ML Workshop Series',
+      issuer: 'Microsoft Learn',
+      date: '2023',
+      type: 'Workshop Series'
+    }
+  ];
+
+  const achievementCertifications = [
+    {
+      title: 'Outstanding Teaching Assistant',
+      issuer: 'NxtWave',
+      date: '2024',
+      achievement: 'CEO Recognition'
+    },
+    {
+      title: 'Top Performer in Full Stack Development',
+      issuer: 'NxtWave',
+      date: '2024',
+      achievement: 'Academic Excellence'
+    },
+    {
+      title: 'Best Project Award',
+      issuer: 'VNRVJIET',
+      date: '2023',
+      achievement: 'Project Excellence'
+    },
+    {
+      title: 'Community Contributor Recognition',
+      issuer: 'GitHub',
+      date: '2023',
+      achievement: 'Community Impact'
+    }
+  ];
+
+  const CompactCertificationCard = ({ cert, type }: { cert: any, type: string }) => (
+    <div className="bg-background rounded-lg p-4 border border-border hover:border-primary/50 transition-colors">
+      <div className="flex items-start justify-between mb-2">
+        <h4 className="font-medium text-sm leading-tight">{cert.title}</h4>
+        <Badge variant="secondary" className="text-xs ml-2">{cert.date}</Badge>
+      </div>
+      <p className="text-primary text-xs font-medium mb-2">{cert.issuer}</p>
+      
+      {cert.skills && (
+        <div className="flex flex-wrap gap-1 mb-2">
+          {cert.skills.slice(0, 3).map((skill: string, index: number) => (
+            <Badge key={index} variant="outline" className="text-xs px-2 py-0">
+              {skill}
+            </Badge>
+          ))}
+          {cert.skills.length > 3 && (
+            <Badge variant="outline" className="text-xs px-2 py-0">
+              +{cert.skills.length - 3}
+            </Badge>
+          )}
+        </div>
+      )}
+      
+      {cert.type && (
+        <Badge className="text-xs w-fit">{cert.type}</Badge>
+      )}
+      
+      {cert.achievement && (
+        <Badge variant="secondary" className="text-xs w-fit">
+          <CheckCircle className="w-3 h-3 mr-1" />
+          {cert.achievement}
+        </Badge>
+      )}
+    </div>
+  );
+
   return (
     <section id="about" className="py-20 bg-secondary/5">
       <div className="container mx-auto px-4">
@@ -106,11 +225,12 @@ const About = () => {
 
         <div className="max-w-6xl mx-auto">
           <Tabs defaultValue="overview" className="w-full">
-            <TabsList className="grid w-full grid-cols-4">
+            <TabsList className="grid w-full grid-cols-5">
               <TabsTrigger value="overview">Overview</TabsTrigger>
               <TabsTrigger value="skills">Skills</TabsTrigger>
               <TabsTrigger value="education">Education</TabsTrigger>
               <TabsTrigger value="achievements">Achievements</TabsTrigger>
+              <TabsTrigger value="certifications">Certifications</TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview" className="mt-8">
@@ -221,6 +341,49 @@ const About = () => {
                   </div>
                 ))}
               </div>
+            </TabsContent>
+
+            <TabsContent value="certifications" className="mt-8">
+              <Tabs defaultValue="technical" className="w-full">
+                <TabsList className="grid w-full grid-cols-3 mb-6">
+                  <TabsTrigger value="technical" className="flex items-center gap-2">
+                    <Award className="w-4 h-4" />
+                    Technical
+                  </TabsTrigger>
+                  <TabsTrigger value="events" className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4" />
+                    Events
+                  </TabsTrigger>
+                  <TabsTrigger value="achievements" className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4" />
+                    Achievements
+                  </TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="technical" className="mt-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {technicalCertifications.map((cert, index) => (
+                      <CompactCertificationCard key={index} cert={cert} type="technical" />
+                    ))}
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="events" className="mt-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {eventCertifications.map((cert, index) => (
+                      <CompactCertificationCard key={index} cert={cert} type="event" />
+                    ))}
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="achievements" className="mt-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {achievementCertifications.map((cert, index) => (
+                      <CompactCertificationCard key={index} cert={cert} type="achievement" />
+                    ))}
+                  </div>
+                </TabsContent>
+              </Tabs>
             </TabsContent>
           </Tabs>
         </div>

@@ -13,7 +13,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5"></div>
       
@@ -48,19 +48,19 @@ const Hero = () => {
 
           {/* Main Content */}
           <div className="space-y-6 animate-fade-in">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
               Hi, I'm <span className="text-primary relative inline-block">
                 Saiteja
-                <Sparkles className="absolute -top-3 -right-10 md:-right-12 w-5 h-5 md:w-6 md:h-6 text-primary animate-pulse" />
+                <Sparkles className="absolute -top-1 -right-6 md:-top-2 md:-right-8 w-4 h-4 md:w-5 md:h-5 text-primary animate-pulse" />
               </span>
             </h1>
             
-            <div className="text-xl md:text-2xl lg:text-3xl text-muted-foreground">
+            <div className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mt-4">
               <span className="block mb-2">Full Stack Developer</span>
               <span className="text-primary font-semibold">& AI Enthusiast</span>
             </div>
 
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mt-6">
               Passionate about building innovative web applications and AI solutions. 
               Currently helping aspiring developers grow as a <span className="text-primary font-medium">Teaching Assistant at NxtWave</span>.
             </p>

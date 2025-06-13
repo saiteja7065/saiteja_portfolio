@@ -1,43 +1,12 @@
 
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import React from 'react';
+import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useToast } from '@/hooks/use-toast';
+import ContactForm from './ContactForm';
+import GitHubActivity from './GitHubActivity';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-      });
-      setFormData({ name: '', email: '', message: '' });
-      setIsSubmitting(false);
-    }, 1000);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   const contactInfo = [
     {
       icon: <Mail className="w-5 h-5" />,
@@ -84,77 +53,14 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
           {/* Contact Form */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Send a Message</CardTitle>
-              <CardDescription>
-                Fill out the form below and I'll get back to you as soon as possible.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium">
-                    Name
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your name"
-                    required
-                  />
-                </div>
+          <div className="lg:col-span-2">
+            <ContactForm />
+          </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">
-                    Email
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your@email.com"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell me about your project or just say hello!"
-                    rows={5}
-                    required
-                  />
-                </div>
-
-                <Button type="submit" className="w-full" disabled={isSubmitting}>
-                  {isSubmitting ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4 mr-2" />
-                      Send Message
-                    </>
-                  )}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          {/* Contact Information */}
-          <div className="space-y-8">
+          {/* Contact Information & GitHub Activity */}
+          <div className="space-y-6">
             <Card>
               <CardHeader>
                 <CardTitle>Contact Information</CardTitle>
@@ -225,6 +131,19 @@ const Contact = () => {
                 </Button>
               </CardContent>
             </Card>
+          </div>
+        </div>
+
+        {/* GitHub Activity Section */}
+        <div className="mt-16">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-2">GitHub Activity</h3>
+            <p className="text-muted-foreground">
+              Check out my latest contributions and projects
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <GitHubActivity />
           </div>
         </div>
       </div>

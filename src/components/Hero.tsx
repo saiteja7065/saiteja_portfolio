@@ -40,7 +40,7 @@ const Hero = () => {
                   SG
                 </AvatarFallback>
               </Avatar>
-              <div className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full p-2 animate-bounce">
+              <div className="absolute -bottom-2 -right-2 bg-primary text-primary-foreground rounded-full p-2 animate-bounce">
                 <Code size={16} />
               </div>
             </div>
@@ -49,9 +49,9 @@ const Hero = () => {
           {/* Main Content */}
           <div className="space-y-6 animate-fade-in">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
-              Hi, I'm <span className="text-primary relative">
+              Hi, I'm <span className="text-primary relative inline-block">
                 Saiteja
-                <Sparkles className="absolute -top-2 -right-8 w-6 h-6 text-primary animate-pulse" />
+                <Sparkles className="absolute -top-3 -right-10 md:-right-12 w-5 h-5 md:w-6 md:h-6 text-primary animate-pulse" />
               </span>
             </h1>
             

@@ -13,8 +13,7 @@ const Projects = () => {
       description: 'Intelligent healthcare management system with predictive analytics and patient monitoring.',
       technologies: ['React', 'Node.js', 'TensorFlow', 'MongoDB'],
       category: 'AI/ML',
-      githubUrl: '#',
-      liveUrl: '#',
+      githubUrl: 'https://github.com/saiteja7065/MedicalRecordsSummaryProject.git',
       featured: true
     },
     {
@@ -22,8 +21,7 @@ const Projects = () => {
       description: 'Complete blogging platform with authentication, rich text editor, and comment system.',
       technologies: ['React', 'Express.js', 'PostgreSQL', 'JWT'],
       category: 'Full Stack',
-      githubUrl: '#',
-      liveUrl: '#',
+      githubUrl: 'https://github.com/saiteja7065/Blog-Application.git',
       featured: true
     },
     {
@@ -31,8 +29,7 @@ const Projects = () => {
       description: 'Smart document search system using natural language processing and vector embeddings.',
       technologies: ['Python', 'OpenAI API', 'Streamlit', 'FAISS'],
       category: 'AI/ML',
-      githubUrl: '#',
-      liveUrl: '#',
+      githubUrl: 'https://github.com/saiteja7065/AI_Document_Search.git',
       featured: true
     },
     {
@@ -41,7 +38,6 @@ const Projects = () => {
       technologies: ['Python', 'Scikit-learn', 'Pandas', 'Flask'],
       category: 'AI/ML',
       githubUrl: '#',
-      liveUrl: '#',
       featured: false
     },
     {
@@ -50,7 +46,6 @@ const Projects = () => {
       technologies: ['React', 'CSS', 'JavaScript', 'API Integration'],
       category: 'Frontend',
       githubUrl: '#',
-      liveUrl: '#',
       featured: false
     },
     {
@@ -59,7 +54,6 @@ const Projects = () => {
       technologies: ['HTML', 'CSS', 'JavaScript', 'Three.js'],
       category: 'Frontend',
       githubUrl: '#',
-      liveUrl: '#',
       featured: false
     }
   ];
@@ -128,14 +122,15 @@ const Projects = () => {
                   </div>
                 </CardContent>
                 
-                <CardFooter className="flex space-x-2">
-                  <Button variant="outline" size="sm" className="flex-1">
+                <CardFooter>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full"
+                    onClick={() => window.open(project.githubUrl, '_blank')}
+                  >
                     <Github className="w-4 h-4 mr-2" />
-                    Code
-                  </Button>
-                  <Button size="sm" className="flex-1">
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Live Demo
+                    View on GitHub
                   </Button>
                 </CardFooter>
               </Card>
@@ -170,14 +165,15 @@ const Projects = () => {
                     </div>
                   </CardContent>
                   
-                  <CardFooter className="flex space-x-2">
-                    <Button variant="outline" size="sm">
+                  <CardFooter>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="w-full"
+                      onClick={() => window.open(project.githubUrl, '_blank')}
+                    >
                       <Github className="w-3 h-3 mr-1" />
-                      Code
-                    </Button>
-                    <Button size="sm">
-                      <ExternalLink className="w-3 h-3 mr-1" />
-                      Demo
+                      View on GitHub
                     </Button>
                   </CardFooter>
                 </Card>
@@ -193,7 +189,7 @@ const Projects = () => {
         )}
 
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg">
+          <Button variant="outline" size="lg" onClick={() => window.open('https://github.com/saiteja7065', '_blank')}>
             <Github className="w-4 h-4 mr-2" />
             View All Projects on GitHub
           </Button>

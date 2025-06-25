@@ -32,7 +32,7 @@ const Hero = () => {
             <div className="relative">
               <Avatar className="w-32 h-32 md:w-40 md:h-40 mx-auto ring-4 ring-primary/20 ring-offset-4 ring-offset-background">
                 <AvatarImage 
-                  src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=400&h=400&fit=crop&crop=face" 
+                  src="/lovable-uploads/9006737b-9791-47b9-8feb-23ab9c161359.png" 
                   alt="Saiteja Garlapati"
                   className="object-cover"
                 />

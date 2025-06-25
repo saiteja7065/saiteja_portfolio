@@ -22,8 +22,8 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call to send email
-      const response = await fetch('https://formspree.io/f/saiteja8421@gmail.com', {
+      // Send email using Formspree service to your email
+      const response = await fetch('https://formspree.io/f/xjkvrpqe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,10 +49,10 @@ const ContactForm = () => {
     } catch (error) {
       console.error('Error sending message:', error);
       toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        title: "Error sending message",
+        description: "Please try again or contact me directly at saiteja8421@gmail.com",
+        variant: "destructive"
       });
-      setFormData({ name: '', email: '', subject: '', message: '' });
     } finally {
       setIsSubmitting(false);
     }

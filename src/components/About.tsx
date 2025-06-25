@@ -97,82 +97,78 @@ const About = () => {
 
   const technicalCertifications = [
     {
-      title: 'Full Stack Development',
+      title: 'NPTEL Certificate on IoT',
+      issuer: 'NPTEL',
+      date: '2025',
+      skills: ['IoT', 'Internet of Things', 'Embedded Systems'],
+      grade: '78%'
+    },
+    {
+      title: 'Teaching Assistant Certification',
       issuer: 'NxtWave',
       date: '2024',
-      skills: ['React.js', 'Node.js', 'JavaScript', 'MongoDB']
+      skills: ['JavaScript', 'React.js', 'Node.js', 'Mentoring'],
+      duration: 'March 2024 - June 2024'
     },
     {
-      title: 'JavaScript Algorithms and Data Structures',
-      issuer: 'freeCodeCamp',
-      date: '2023',
-      skills: ['JavaScript', 'Algorithms', 'Data Structures']
+      title: 'Certificate of Achievement - GET SET PY Workshop',
+      issuer: 'VNRVJIET',
+      date: '2024',
+      skills: ['Python', 'Programming', 'Software Development']
     },
     {
-      title: 'Machine Learning Fundamentals',
-      issuer: 'Coursera',
-      date: '2023',
-      skills: ['Python', 'ML', 'TensorFlow', 'Scikit-learn']
-    },
-    {
-      title: 'AWS Cloud Practitioner',
-      issuer: 'Amazon Web Services',
-      date: '2023',
-      skills: ['AWS', 'Cloud Computing', 'DevOps']
+      title: 'Technical Event at Microsoft Hyderabad Campus',
+      issuer: 'Tech Boy Deepak',
+      date: '2024',
+      skills: ['Microsoft Technologies', 'Cloud Computing', 'Azure']
     }
   ];
 
   const eventCertifications = [
     {
-      title: 'Google Developer Groups (GDG) DevFest 2023',
-      issuer: 'Google Developers',
-      date: '2023',
-      type: 'Workshop Participation'
+      title: 'Hackindia 2025 Hackathon',
+      issuer: 'CBIT College',
+      date: '2025',
+      type: 'Hackathon Participation',
+      duration: 'April 11-12, 2025'
     },
     {
-      title: 'HacktoberFest 2023',
-      issuer: 'DigitalOcean',
-      date: '2023',
-      type: 'Open Source Contribution'
+      title: 'GDGC 24-hour Solution Challenge Hackathon',
+      issuer: 'Google Developer Groups',
+      date: '2024',
+      type: 'Hackathon Participation',
+      duration: 'February 8-9, 2024'
     },
     {
-      title: 'Tech Innovation Summit',
-      issuer: 'IEEE',
-      date: '2023',
-      type: 'Conference Participation'
-    },
-    {
-      title: 'AI/ML Workshop Series',
-      issuer: 'Microsoft Learn',
-      date: '2023',
-      type: 'Workshop Series'
+      title: 'GeeksforGeeks Student Chapter Hackathon',
+      issuer: 'Anurag University',
+      date: '2024',
+      type: 'Hackathon Participation',
+      duration: 'February 6-7, 2024'
     }
   ];
 
   const achievementCertifications = [
     {
+      title: '1st Runner Up - Greentech Hackathon',
+      issuer: 'Vasavi College of Engineering',
+      date: '2025',
+      achievement: '1st Runner Up',
+      event: 'April 8, 2025'
+    },
+    {
       title: 'Outstanding Teaching Assistant',
       issuer: 'NxtWave',
       date: '2024',
-      achievement: 'CEO Recognition'
-    },
-    {
-      title: 'Top Performer in Full Stack Development',
-      issuer: 'NxtWave',
-      date: '2024',
-      achievement: 'Academic Excellence'
+      achievement: 'CEO Recognition',
+      details: '306 discussions resolved, 264 learners assisted'
     },
     {
       title: 'Best Project Award',
       issuer: 'VNRVJIET',
-      date: '2023',
-      achievement: 'Project Excellence'
-    },
-    {
-      title: 'Community Contributor Recognition',
-      issuer: 'GitHub',
-      date: '2023',
-      achievement: 'Community Impact'
+      date: '2024',
+      achievement: 'Project Excellence',
+      details: 'AI Healthcare Solution'
     }
   ];
 
@@ -197,6 +193,24 @@ const About = () => {
             </Badge>
           )}
         </div>
+      )}
+
+      {cert.grade && (
+        <Badge className="text-xs w-fit mb-1 bg-green-100 text-green-800">
+          Score: {cert.grade}
+        </Badge>
+      )}
+
+      {cert.duration && (
+        <p className="text-xs text-muted-foreground mb-1">{cert.duration}</p>
+      )}
+
+      {cert.event && (
+        <p className="text-xs text-muted-foreground mb-1">{cert.event}</p>
+      )}
+
+      {cert.details && (
+        <p className="text-xs text-muted-foreground mb-1">{cert.details}</p>
       )}
       
       {cert.type && (
@@ -231,7 +245,7 @@ const About = () => {
               <TabsTrigger value="skills" className="px-2 md:px-4">Skills</TabsTrigger>
               <TabsTrigger value="education" className="px-2 md:px-4 hidden md:block">Education</TabsTrigger>
               <TabsTrigger value="achievements" className="px-2 md:px-4 hidden md:block">Achievements</TabsTrigger>
-              <TabsTrigger value="certifications" className="px-2 md:px-4">Certs</TabsTrigger>
+              <TabsTrigger value="certifications" className="px-2 md:px-4">Certificates</TabsTrigger>
             </TabsList>
 
             {/* Mobile-only tabs for Education and Achievements */}

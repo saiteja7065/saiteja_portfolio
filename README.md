@@ -1,73 +1,103 @@
-# Welcome to your Lovable project
 
-## Project info
+# Saiteja Garlapati - Portfolio
 
-**URL**: https://lovable.dev/projects/fa715a8e-3333-43c1-aa94-54614c0e94d4
+## About Me
 
-## How can I edit this code?
+I'm **Saiteja Garlapati**, a passionate Full Stack Developer and AI Enthusiast based in India. I specialize in building innovative web applications and AI solutions while helping aspiring developers grow through mentoring and teaching.
 
-There are several ways of editing your application.
+## Professional Experience
 
-**Use Lovable**
+- **Teaching Assistant at NxtWave** (March 2024 - June 2024)
+  - Resolved 306 technical discussions and queries
+  - Assisted 264 learners in mastering full-stack development
+  - Recognized by CEO for outstanding performance
+  - Maintained 98% satisfaction rate from learners
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/fa715a8e-3333-43c1-aa94-54614c0e94d4) and start prompting.
+## Certifications & Achievements
 
-Changes made via Lovable will be committed automatically to this repo.
+### Technical Certifications
+- NPTEL Certificate on IoT with 78% (Jan-April 2025)
+- Certificate of Achievement on GET SET PY workshop organized by VNRVJIET (Oct 25-26, 2024)
+- Teaching Assistant Certification from NxtWave (March-June 2024)
 
-**Use your preferred IDE**
+### Hackathons & Events
+- Hackindia 2025 Hackathon participant organized by CBIT College (April 11-12, 2025)
+- 1st Runner Up in Greentech Hackathon conducted by Vasavi College of Engineering (April 8, 2025)
+- Certificate of participation in GDGC 24-hour solution challenge Hackathon (Feb 8-9, 2024)
+- Certificate of Participation in hackathon organized by GeeksforGeeks student chapter in Anurag University (Feb 6-7, 2024)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Professional Development
+- Technical event attendee at Microsoft Hyderabad Campus organized by Tech Boy Deepak (Dec 14, 2024)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Tech Stack
 
-Follow these steps:
+- **Frontend:** React.js, TypeScript, Tailwind CSS, HTML5, CSS3
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB, SQL
+- **Tools & Technologies:** Git, GitHub, VS Code, Postman
+- **AI/ML:** Python, Machine Learning concepts
+- **Other:** IoT, Full Stack Development
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Contact Information
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- **Email:** saiteja8421@gmail.com
+- **Phone:** +91 7386961363
+- **Location:** India
+- **GitHub:** [saiteja7065](https://github.com/saiteja7065)
+- **LinkedIn:** [saitejagarlapati](https://www.linkedin.com/in/saitejagarlapati)
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Portfolio Website
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+This portfolio is built with:
+- **React** + **TypeScript** for robust component development
+- **Vite** for fast development and building
+- **Tailwind CSS** for responsive and modern styling
+- **Shadcn/ui** for beautiful UI components
+- **Lucide React** for consistent iconography
+
+## Live Demo
+
+Visit my portfolio: [Live Website](https://lovable.dev/projects/fa715a8e-3333-43c1-aa94-54614c0e94d4)
+
+## Local Development
+
+To run this portfolio locally:
+
+```bash
+# Clone the repository
+git clone <repository-url>
+
+# Navigate to project directory
+cd saiteja-portfolio
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+This portfolio is deployed using Lovable's hosting platform. You can also deploy it to other platforms like Vercel, Netlify, or GitHub Pages.
 
-**Use GitHub Codespaces**
+## Features
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- ✨ Modern and responsive design
+- 🎨 Dark/Light theme support
+- 📱 Mobile-first approach
+- 🚀 Fast loading and optimized performance
+- 📧 Contact form with email integration
+- 🏆 Dynamic certifications and achievements display
+- 💼 Professional experience timeline
+- 🔗 Social media integration
 
-## What technologies are used for this project?
+## Let's Connect!
 
-This project is built with:
+I'm always interested in new opportunities and exciting projects. Whether you're looking for a full-stack developer, need AI solutions, or have an innovative idea, I'd love to discuss how we can work together.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Feel free to reach out through any of the contact methods above!
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/fa715a8e-3333-43c1-aa94-54614c0e94d4) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+*Built with ❤️ by Saiteja Garlapati*

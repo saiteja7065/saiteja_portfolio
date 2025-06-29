@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { ExternalLink, Github, Sparkles, Filter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import ProjectCard3D from './ProjectCard3D';
 
 const Projects = () => {
   const [selectedFilter, setSelectedFilter] = useState('All');
@@ -69,15 +69,21 @@ const Projects = () => {
   const otherProjects = filteredProjects.filter(project => !project.featured);
 
   return (
-    <section id="projects" className="py-20">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="py-20 relative">
+      {/* 3D Background Elements */}
+      <div className="absolute inset-0 overflow-hidden opacity-10">
+        <div className="absolute top-10 left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse transform-gpu animate-bounce" style={{ animationDelay: '0s' }}></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-secondary/20 rounded-full blur-3xl animate-pulse transform-gpu animate-bounce" style={{ animationDelay: '2s' }}></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 transform-gpu hover:scale-105 transition-transform duration-300">Featured Projects</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 transform-gpu hover:translate-y-1 transition-transform duration-300">
             A showcase of my technical expertise through innovative web applications and AI solutions.
           </p>
           
-          {/* Filter Buttons */}
+          {/* Enhanced Filter Buttons */}
           <div className="flex flex-wrap justify-center gap-2 mb-8">
             {categories.map((category) => (
               <Button
@@ -85,7 +91,7 @@ const Projects = () => {
                 variant={selectedFilter === category ? "default" : "outline"}
                 size="sm"
                 onClick={() => setSelectedFilter(category)}
-                className="transition-all duration-200"
+                className="transition-all duration-300 transform-gpu hover:scale-110 hover:-translate-y-1 shadow-md hover:shadow-lg"
               >
                 <Filter className="w-3 h-3 mr-1" />
                 {category}
@@ -94,89 +100,30 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* Featured Projects */}
+        {/* Featured Projects with 3D Cards */}
         {featuredProjects.length > 0 && (
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             {featuredProjects.map((project, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-border hover:border-primary/50">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="flex items-center space-x-2">
-                      <span>{project.title}</span>
-                      <Sparkles className="w-4 h-4 text-primary" />
-                    </CardTitle>
-                    <Badge variant="secondary" className="text-xs">
-                      {project.category}
-                    </Badge>
-                  </div>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
-                
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="secondary">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-                
-                <CardFooter>
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="w-full"
-                    onClick={() => window.open(project.githubUrl, '_blank')}
-                  >
-                    <Github className="w-4 h-4 mr-2" />
-                    View on GitHub
-                  </Button>
-                </CardFooter>
-              </Card>
+              <ProjectCard3D
+                key={index}
+                {...project}
+                index={index}
+              />
             ))}
           </div>
         )}
 
-        {/* Other Projects */}
+        {/* Other Projects with 3D Cards */}
         {otherProjects.length > 0 && (
           <div>
-            <h3 className="text-2xl font-bold mb-8 text-center">Other Projects</h3>
+            <h3 className="text-2xl font-bold mb-8 text-center transform-gpu hover:scale-105 transition-transform duration-300">Other Projects</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {otherProjects.map((project, index) => (
-                <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-border hover:border-primary/50">
-                  <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-lg">{project.title}</CardTitle>
-                      <Badge variant="outline" className="text-xs">
-                        {project.category}
-                      </Badge>
-                    </div>
-                    <CardDescription className="text-sm">{project.description}</CardDescription>
-                  </CardHeader>
-                  
-                  <CardContent>
-                    <div className="flex flex-wrap gap-1">
-                      {project.technologies.map((tech, techIndex) => (
-                        <Badge key={techIndex} variant="outline" className="text-xs">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                  
-                  <CardFooter>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      className="w-full"
-                      onClick={() => window.open(project.githubUrl, '_blank')}
-                    >
-                      <Github className="w-3 h-3 mr-1" />
-                      View on GitHub
-                    </Button>
-                  </CardFooter>
-                </Card>
+                <ProjectCard3D
+                  key={index}
+                  {...project}
+                  index={index + featuredProjects.length}
+                />
               ))}
             </div>
           </div>
@@ -189,7 +136,12 @@ const Projects = () => {
         )}
 
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg" onClick={() => window.open('https://github.com/saiteja7065', '_blank')}>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            onClick={() => window.open('https://github.com/saiteja7065', '_blank')}
+            className="transform-gpu hover:scale-110 hover:-translate-y-1 transition-transform duration-300 shadow-lg hover:shadow-xl"
+          >
             <Github className="w-4 h-4 mr-2" />
             View All Projects on GitHub
           </Button>

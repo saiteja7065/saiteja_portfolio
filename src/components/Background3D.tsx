@@ -18,17 +18,23 @@ const FloatingShape = ({ position, color, shape }: { position: [number, number, 
   const renderShape = () => {
     switch (shape) {
       case 'sphere':
-        return <Sphere ref={meshRef} args={[0.5, 32, 32]} position={position}>
-          <meshStandardMaterial color={color} transparent opacity={0.6} />
-        </Sphere>;
+        return (
+          <Sphere ref={meshRef} args={[0.5, 32, 32]} position={position}>
+            <meshStandardMaterial color={color} transparent opacity={0.6} />
+          </Sphere>
+        );
       case 'box':
-        return <Box ref={meshRef} args={[0.8, 0.8, 0.8]} position={position}>
-          <meshStandardMaterial color={color} transparent opacity={0.6} />
-        </Box>;
+        return (
+          <Box ref={meshRef} args={[0.8, 0.8, 0.8]} position={position}>
+            <meshStandardMaterial color={color} transparent opacity={0.6} />
+          </Box>
+        );
       case 'torus':
-        return <Torus ref={meshRef} args={[0.6, 0.2, 16, 32]} position={position}>
-          <meshStandardMaterial color={color} transparent opacity={0.6} />
-        </Torus>;
+        return (
+          <Torus ref={meshRef} args={[0.6, 0.2, 16, 32]} position={position}>
+            <meshStandardMaterial color={color} transparent opacity={0.6} />
+          </Torus>
+        );
       default:
         return null;
     }
@@ -40,7 +46,17 @@ const FloatingShape = ({ position, color, shape }: { position: [number, number, 
 const Background3D = () => {
   return (
     <div className="fixed inset-0 -z-10">
-      <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
+      <Canvas 
+        camera={{ position: [0, 0, 10], fov: 60 }}
+        onCreated={(state) => {
+          state.gl.setClearColor('#000000', 0);
+        }}
+        gl={{ 
+          antialias: true, 
+          alpha: true,
+          powerPreference: "high-performance"
+        }}
+      >
         <ambientLight intensity={0.4} />
         <pointLight position={[10, 10, 10]} intensity={0.8} />
         <pointLight position={[-10, -10, -10]} intensity={0.3} color="#6366f1" />
@@ -52,7 +68,14 @@ const Background3D = () => {
         <FloatingShape position={[3, 1, -3]} color="#f59e0b" shape="box" />
         <FloatingShape position={[0, -4, -5]} color="#ef4444" shape="torus" />
         
-        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+        <OrbitControls 
+          enableZoom={false} 
+          enablePan={false} 
+          autoRotate 
+          autoRotateSpeed={0.5}
+          enableDamping
+          dampingFactor={0.05}
+        />
       </Canvas>
     </div>
   );

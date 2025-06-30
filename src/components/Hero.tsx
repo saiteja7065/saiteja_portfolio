@@ -3,7 +3,6 @@ import React from 'react';
 import { ArrowDown, Download, ExternalLink, Code, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import Hero3DScene from './Hero3D';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -15,11 +14,6 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* 3D Background Scene */}
-      <div className="absolute inset-0 opacity-30">
-        <Hero3DScene />
-      </div>
-      
       {/* Background Gradient with enhanced 3D feel */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10"></div>
       

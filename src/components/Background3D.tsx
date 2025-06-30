@@ -1,7 +1,7 @@
 
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Sphere, Box, Torus } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
 const FloatingShape = ({ position, color, shape }: { position: [number, number, number], color: string, shape: 'sphere' | 'box' | 'torus' }) => {
@@ -11,7 +11,11 @@ const FloatingShape = ({ position, color, shape }: { position: [number, number, 
     if (meshRef.current) {
       meshRef.current.rotation.x = state.clock.elapsedTime * 0.2;
       meshRef.current.rotation.y = state.clock.elapsedTime * 0.3;
-      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime + position[0]) * 0.5;
+      meshRef.current.position.set(
+        position[0],
+        position[1] + Math.sin(state.clock.elapsedTime + position[0]) * 0.5,
+        position[2]
+      );
     }
   });
 
@@ -19,21 +23,24 @@ const FloatingShape = ({ position, color, shape }: { position: [number, number, 
     switch (shape) {
       case 'sphere':
         return (
-          <Sphere ref={meshRef} args={[0.5, 32, 32]} position={position}>
+          <mesh ref={meshRef}>
+            <sphereGeometry args={[0.5, 32, 32]} />
             <meshStandardMaterial color={color} transparent opacity={0.6} />
-          </Sphere>
+          </mesh>
         );
       case 'box':
         return (
-          <Box ref={meshRef} args={[0.8, 0.8, 0.8]} position={position}>
+          <mesh ref={meshRef}>
+            <boxGeometry args={[0.8, 0.8, 0.8]} />
             <meshStandardMaterial color={color} transparent opacity={0.6} />
-          </Box>
+          </mesh>
         );
       case 'torus':
         return (
-          <Torus ref={meshRef} args={[0.6, 0.2, 16, 32]} position={position}>
+          <mesh ref={meshRef}>
+            <torusGeometry args={[0.6, 0.2, 16, 32]} />
             <meshStandardMaterial color={color} transparent opacity={0.6} />
-          </Torus>
+          </mesh>
         );
       default:
         return null;

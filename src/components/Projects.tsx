@@ -40,13 +40,6 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20 relative">
-      {/* Enhanced 3D Background Elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-10">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse transform-gpu animate-bounce animate-glow" style={{ animationDelay: '0s' }}></div>
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-secondary/20 rounded-full blur-3xl animate-pulse transform-gpu animate-bounce animate-glow" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-20 h-20 bg-primary/10 rounded-full blur-2xl animate-pulse transform-gpu animate-wobble" style={{ animationDelay: '1s' }}></div>
-      </div>
-
       <div className="container mx-auto px-4 relative z-10">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'animate-page-load' : 'opacity-0'}`}>
           <h2 className={`text-3xl md:text-4xl font-bold mb-4 transform-gpu transition-all duration-700 ${isVisible ? 'animate-slide-down' : 'opacity-0 -translate-y-10'} hover:scale-105 hover-tilt transition-transform duration-300 animate-glow`}>
